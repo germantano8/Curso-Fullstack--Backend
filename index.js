@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const PORT = 3000;
 const MONGO_URL = "mongodb+srv://germantano8:pNNqnNLbTNerShWb@cluster0.vakll.mongodb.net/curso_fullstack?retryWrites=true&w=majority";
+const router = require('./src/routes/index.js');
 
 const app = express();
-const router = require('./src/routes/index.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -4,48 +4,55 @@
       "title": "Alfombra", 
       "description": "Alfombra para living 60x60 cm.",
       "image": "img/alfombra.png",
-      "price": "$100"
+      "price": 100,
+      "idSupplier": "2"
     },
     {
       "id": "2",
       "title": "Cortina de baño", 
       "description": "Cortina de baño 2,5x2 m.", 
       "image": "img/cortina-baño.png",
-      "price": "$100"
+      "price": 100,
+      "idSupplier": "1"
     },
     {
       "id": "3",
       "title": "Cortina de habitación", 
       "description": "Cortina de habitación 2,5x2 m.", 
       "image": "img/cortina-hab.png",
-      "price": "$100"
+      "price": 100,
+      "idSupplier": "2"
     },
     {
       "id": "4",
       "title": "Cubrecama queen size", 
       "description": "Cubrecama queen size. 2x1,6 m", 
       "image": "img/cubrecama.png",
-      "price": "$100"
+      "price": 100,
+      "idSupplier": "2"
     },
     {
       "id": "5",
       "title": "Mantel estampado", 
       "description": "Mantel estampado 1,5x1,5 m.", 
       "image": "img/mantel.png",
-      "price": "$100"
+      "price": 100,
+      "idSupplier": "1"
     },
     {
       "id": "6",
       "title": "Sábana queen size", 
       "description": "Sábana queen size 2x1,6 m", 
       "image": "img/sabana.png",
-      "price": "$100"
+      "price": 100,
+      "idSupplier": "2"
     },
     {
       "id": "7",
       "title": "Toallas", 
       "description": "Toallas de mano de secado rápido.", 
       "image": "img/toalla.png",
-      "price": "$100"
+      "price": 100,
+      "idSupplier": "1"
     }
 ]

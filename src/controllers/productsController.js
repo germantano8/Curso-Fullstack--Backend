@@ -38,7 +38,7 @@ const getProductById = async (req, res) => {
             error: true,
         });
     }
-};
+}
 
 const addProduct = async (req, res) => {
     try {
@@ -54,7 +54,7 @@ const addProduct = async (req, res) => {
             error: true,
         });
     }
-};
+}
 
 const updateProduct = async (req, res) => {
     try {
@@ -91,7 +91,7 @@ const updateProduct = async (req, res) => {
             msg: error,
         });
     }
-};
+}
 
 const deleteProduct = async (req, res) => {
     try {
@@ -122,7 +122,7 @@ const deleteProduct = async (req, res) => {
             msg: error,
         });
     }
-};
+}
 
 module.exports = {
     getProducts,

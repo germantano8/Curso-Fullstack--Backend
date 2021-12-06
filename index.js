@@ -1,9 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const PORT = 3000;
-const MONGO_URL = "mongodb+srv://germantano8:pNNqnNLbTNerShWb@cluster0.vakll.mongodb.net/curso_fullstack?retryWrites=true&w=majority";
+const PORT = process.env.PORT || 3000;
+const MONGO_URL = process.env.MONGO_URL;
 const router = require('./src/routes/index.js');
 
 const app = express();

@@ -43,19 +43,21 @@ const getProductById = async (req, res) => {
 const addProduct = async (req, res) => {
     try {
         const product = new models.Products(req.body);
+
         const supplier = await models.Suppliers.findById(product.idSupplier);
-        if (supplier) {
-            await product.save();
-            res.status(200).json({
-                data: product,
-                error: false,
-            });
-        } else {
-            res.status(404).json({
+
+        if (!supplier) {
+            res.status(400).json({
                 error: true,
                 msg: "El proveedor no existe",
             });
         }
+        
+        await product.save();
+        res.status(200).json({
+            data: product,
+            error: false,
+        });
     } catch (error) {
         return res.status(500).json({
             msg: error,
@@ -69,9 +71,18 @@ const updateProduct = async (req, res) => {
         const productId = req.params.id;
 
         if (!Object.keys(req.body).length) {
-            return res.status(404).json({
+            return res.status(400).json({
                 error: true,
                 msg: "Por favor, inserte los datos necesarios",
+            });
+        }
+
+        const supplier = await models.Suppliers.findById(product.idSupplier);
+
+        if (!supplier) {
+            res.status(400).json({
+                error: true,
+                msg: "El proveedor no existe",
             });
         }
 

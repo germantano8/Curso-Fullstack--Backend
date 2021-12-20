@@ -60,13 +60,6 @@ const updateSupplier = async (req, res) => {
     try {
         const supplierId = req.params.id;
 
-        if (!Object.keys(req.body).length) {
-            return res.status(404).json({
-                error: true,
-                msg: "Por favor, inserte los datos necesarios",
-            });
-        }
-
         const supplier = await models.Suppliers.findByIdAndUpdate(
             supplierId,
             req.body,

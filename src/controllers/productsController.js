@@ -1,4 +1,7 @@
 const models = require('../models');
+const mongoose = require('mongoose');
+
+const objectIdValidator = mongoose.Types.ObjectId;
 
 const getProducts = async (req, res) => {
     try{
@@ -42,9 +45,9 @@ const getProductById = async (req, res) => {
 
 const addProduct = async (req, res) => {
     try {
+        const supplier = await models.Suppliers.findById(req.body.idSupplier);
+        
         const product = new models.Products(req.body);
-
-        const supplier = await models.Suppliers.findById(product.idSupplier);
 
         if (!supplier) {
             res.status(400).json({
@@ -70,14 +73,7 @@ const updateProduct = async (req, res) => {
     try {
         const productId = req.params.id;
 
-        if (!Object.keys(req.body).length) {
-            return res.status(400).json({
-                error: true,
-                msg: "Por favor, inserte los datos necesarios",
-            });
-        }
-
-        const supplier = await models.Suppliers.findById(product.idSupplier);
+        const supplier = await models.Suppliers.findById(req.body.idSupplier);
 
         if (!supplier) {
             res.status(400).json({

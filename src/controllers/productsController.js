@@ -70,13 +70,6 @@ const updateProduct = async (req, res) => {
     try {
         const productId = req.params.id;
 
-        if (!Object.keys(req.body).length) {
-            return res.status(400).json({
-                error: true,
-                msg: "Por favor, inserte los datos necesarios",
-            });
-        }
-
         const supplier = await models.Suppliers.findById(product.idSupplier);
 
         if (!supplier) {

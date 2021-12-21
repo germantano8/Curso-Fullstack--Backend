@@ -75,7 +75,7 @@ const updateSupplier = async (req, res) => {
         } else {
             res.status(404).json({
                 error: true,
-                msg: "El producto no existe",
+                msg: "El proveedor no existe",
             });
         }
     } catch (error) {

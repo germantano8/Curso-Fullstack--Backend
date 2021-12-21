@@ -1,7 +1,4 @@
 const models = require('../models');
-const mongoose = require('mongoose');
-
-const objectIdValidator = mongoose.Types.ObjectId;
 
 const getProducts = async (req, res) => {
     try{
@@ -45,10 +42,17 @@ const getProductById = async (req, res) => {
 
 const addProduct = async (req, res) => {
     try {
-        const supplier = await models.Suppliers.findById(req.body.idSupplier);
-        
         const product = new models.Products(req.body);
 
+        if(!validFields(req.body)){
+            res.status(400).json({
+                error: true,
+                msg: "Los campos no son válidos",
+            });
+        }
+
+        const supplier = await models.Suppliers.findById(req.body.idSupplier);
+        
         if (!supplier) {
             res.status(400).json({
                 error: true,
@@ -73,6 +77,13 @@ const updateProduct = async (req, res) => {
     try {
         const productId = req.params.id;
 
+        if(!validFields(req.body)){
+            res.status(400).json({
+                error: true,
+                msg: "Los campos no son válidos",
+            });
+        }
+
         const supplier = await models.Suppliers.findById(req.body.idSupplier);
 
         if (!supplier) {
@@ -95,7 +106,7 @@ const updateProduct = async (req, res) => {
                 data: product,
             });
         } else {
-            res.status(404).json({
+            res.status(400).json({
                 error: true,
                 msg: "El producto no existe",
             });
@@ -138,6 +149,23 @@ const deleteProduct = async (req, res) => {
         });
     }
 }
+
+const validFields = (body) => {
+    const fields = [
+        'title',
+        'price',
+        'stock',
+        'idSupplier',
+    ];
+
+    if(fields && body.price > 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
 
 module.exports = {
     getProducts,
